@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#120713" />
+  <title>Luna & Pip: Sessiz Şehrin Sırları</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main id="app" class="app" aria-live="polite">
+    <div class="rose-field" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+
+    <section id="startScreen" class="screen screen--active">
+      <div class="start-card">
+        <div class="soft-badge">♡ Diyalog tabanlı interaktif hikâye</div>
+        <div class="logo-row">
+          <img src="./assets/luna.png" alt="Luna" />
+          <div class="heart-pulse">♡</div>
+          <img src="./assets/pip.png" alt="Pip" />
+        </div>
+        <h1>Luna & Pip:<br><span>Sessiz Şehrin Sırları</span></h1>
+        <p class="intro">
+          “Doğru yerde miyim?” diye başlayan sıcak bir hikâye. Mesajlar, çiçekler,
+          küçük oyunlar, kırılan güven ve Luna’nın hızında yeniden kurulan yakınlık.
+        </p>
+        <div class="start-actions">
+          <button id="newGameBtn" class="primary-btn">Yeni Oyuna Başla</button>
+          <button id="continueBtn" class="ghost-btn">Kayıttan Devam Et</button>
+        </div>
+        <p class="tiny-note">Otomatik kayıt açıktır. GitHub Pages uyumludur; backend ve framework yoktur.</p>
+      </div>
+    </section>
+
+    <section id="gameScreen" class="screen" hidden>
+      <div id="moodBackdrop" class="mood-backdrop mood-warm" aria-hidden="true">
+        <div class="phone-glow"></div>
+        <div class="city-silhouette"></div>
+        <div class="floating-orchid">✿</div>
+      </div>
+
+      <header class="top-bar">
+        <div>
+          <p class="label">Sessiz Şehir</p>
+          <h2 id="chapterTitle">Başlangıç</h2>
+        </div>
+        <div class="top-actions">
+          <button id="musicBtn" class="icon-btn" aria-label="Müziği aç veya kapat" title="Müzik">♪</button>
+          <button id="menuBtn" class="icon-btn" aria-label="Oyun durumunu aç">☰</button>
+        </div>
+      </header>
+
+      <aside id="sideMenu" class="side-menu" aria-hidden="true">
+        <button id="closeMenuBtn" class="icon-btn side-close" aria-label="Menüyü kapat">×</button>
+        <h3>Oyun Durumu</h3>
+        <p class="menu-copy">Hiçbir final ayrılık değildir; sadece onarımın hızı değişir.</p>
+        <div id="statList" class="stat-list"></div>
+        <button id="restartBtn" class="danger-btn">Baştan Başlat</button>
+        <button id="exportBtn" class="ghost-btn small">Kayıt Kodunu Kopyala</button>
+      </aside>
+
+      <section class="character-strip" aria-label="Karakterler">
+        <article id="lunaCard" class="character-card active">
+          <img src="./assets/luna.png" alt="Luna profil görseli" />
+          <div><strong>Luna</strong><span>Duygusal, kontrollü, sınırlarını bilen</span></div>
+        </article>
+        <article id="pipCard" class="character-card">
+          <img src="./assets/pip.png" alt="Pip kedi görseli" />
+          <div><strong>Pip</strong><span>Esprili, koruyucu, ciddi miyav uzmanı</span></div>
+        </article>
+      </section>
+
+      <section id="dialoguePanel" class="dialogue-panel">
+        <p id="sceneTag" class="scene-tag">Telefon Ekranı</p>
+        <div class="speaker-line">
+          <div id="speakerIcon" class="speaker-icon">L</div>
+          <div>
+            <p class="speaking-label">Konuşan</p>
+            <h3 id="speakerName">Luna</h3>
+          </div>
+        </div>
+        <p id="dialogueText" class="dialogue-text"></p>
+        <button id="skipTypeBtn" class="skip-btn">Yazıyı tamamla</button>
+        <div id="choices" class="choices"></div>
+      </section>
+    </section>
+  </main>
+
+  <audio id="warmMusic" src="./assets/warm-theme.mp3" loop preload="auto"></audio>
+  <audio id="sadMusic" src="./assets/sad-theme.mp3" loop preload="auto"></audio>
+
+  <script src="./story.js"></script>
+  <script src="./game.js"></script>
+</body>
+</html>
